@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { apiFetch } from "../api/api";
@@ -120,6 +121,18 @@ function Register() {
             {loading ? "Registering..." : "Register"}
           </button>
         </form>
+
+        {/* Password Conditions - Separate Section */}
+        <div className="password-conditions">
+          <h3>Password Requirements</h3>
+          <ul>
+            <li>At least 8 characters</li>
+            <li>At least 1 uppercase letter</li>
+            <li>At least 1 lowercase letter</li>
+            <li>At least 1 number</li>
+            <li>At least 1 special character</li>
+          </ul>
+        </div>
 
         <p className="auth-link">
           Already have an account?{" "}
