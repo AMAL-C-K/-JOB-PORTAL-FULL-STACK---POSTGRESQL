@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { apiFetch } from "../api/api";
@@ -21,6 +20,7 @@ function Register() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     setFormData((prev) => ({
       ...prev,
       [name]: value,
@@ -61,70 +61,130 @@ function Register() {
 
   return (
     <div className="auth-container">
-      <div className="auth-card">
-        <h1>Create Account</h1>
-        <p>Join the Job Portal</p>
 
-        {error && <div className="error-message">{error}</div>}
-        {success && <div className="success-message">{success}</div>}
+      <div className="register-layout">
 
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="username">Username</label>
-          <input
-            id="username"
-            type="text"
-            name="username"
-            placeholder="Username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          />
+        {/* =========================
+            REGISTRATION FORM
+        ========================= */}
 
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
+        <div className="auth-card">
 
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
+          <h1>Create Account</h1>
+          <p>Join the Job Portal</p>
 
-          <label htmlFor="role">Role</label>
-          <select
-            id="role"
-            name="role"
-            value={formData.role}
-            onChange={handleChange}
-          >
-            <option value="candidate">Job Seeker</option>
-            <option value="employer">Employer</option>
-          </select>
+          {error && (
+            <div className="error-message">
+              {error}
+            </div>
+          )}
 
-          <button
-            type="submit"
-            className="btn btn-primary"
-            disabled={loading}
-          >
-            {loading ? "Registering..." : "Register"}
-          </button>
-        </form>
+          {success && (
+            <div className="success-message">
+              {success}
+            </div>
+          )}
 
-        {/* Password Conditions - Separate Section */}
+          <form onSubmit={handleSubmit}>
+
+            <label htmlFor="username">
+              Username
+            </label>
+
+            <input
+              id="username"
+              type="text"
+              name="username"
+              placeholder="Username"
+              value={formData.username}
+              onChange={handleChange}
+              required
+            />
+
+            <label htmlFor="email">
+              Email
+            </label>
+
+            <input
+              id="email"
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+
+            <label htmlFor="password">
+              Password
+            </label>
+
+            <input
+              id="password"
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+
+            <label htmlFor="role">
+              Role
+            </label>
+
+            <select
+              id="role"
+              name="role"
+              value={formData.role}
+              onChange={handleChange}
+            >
+              <option value="candidate">
+                Job Seeker
+              </option>
+
+              <option value="employer">
+                Employer
+              </option>
+            </select>
+
+            <button
+              type="submit"
+              className="btn btn-primary"
+              disabled={loading}
+            >
+              {loading ? "Registering..." : "Register"}
+            </button>
+
+          </form>
+
+          <p className="auth-link">
+            Already have an account?{" "}
+
+            <button
+              type="button"
+              className="link-btn"
+              onClick={() => navigate("/login")}
+            >
+              Login
+            </button>
+          </p>
+
+        </div>
+
+
+        {/* =========================
+            PASSWORD REQUIREMENTS
+        ========================= */}
+
         <div className="password-conditions">
-          <h3>Password Requirements</h3>
+
+          <h2>Password Requirements</h2>
+
+          <p>
+            Your password should contain:
+          </p>
+
           <ul>
             <li>At least 8 characters</li>
             <li>At least 1 uppercase letter</li>
@@ -132,21 +192,14 @@ function Register() {
             <li>At least 1 number</li>
             <li>At least 1 special character</li>
           </ul>
+
         </div>
 
-        <p className="auth-link">
-          Already have an account?{" "}
-          <button
-            type="button"
-            className="link-btn"
-            onClick={() => navigate("/login")}
-          >
-            Login
-          </button>
-        </p>
       </div>
+
     </div>
   );
 }
 
 export default Register;
+
