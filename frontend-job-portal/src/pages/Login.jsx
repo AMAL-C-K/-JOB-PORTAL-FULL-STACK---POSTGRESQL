@@ -123,14 +123,26 @@ function Login() {
           <p>Use these credentials to explore the Job Portal.</p>
 
           <div className="demo-item">
+            <h4>Jobseeker</h4>
             <strong>Username</strong>
-            <span>demo_user</span>
+            <span>DEMOUSER</span>
           </div>
 
           <div className="demo-item">
             <strong>Password</strong>
-            <span>Demo@123</span>
+            <span>Demo@1234</span>
           </div>
+          <div className="demo-item">
+            <h4>Employer</h4>
+            <strong>Username</strong>
+            <span>hr@nexaSoft / hr@digitaledge</span>
+          </div>
+
+          <div className="demo-item">
+            <strong>Password</strong>
+            <span>Hr@12345</span>
+          </div>
+          
         </div>
 
       </div>
