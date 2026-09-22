@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { apiFetch } from "../api/api";
@@ -64,10 +65,7 @@ function Register() {
 
       <div className="register-layout">
 
-        {/* =========================
-            REGISTRATION FORM
-        ========================= */}
-
+        {/* LEFT SIDE - REGISTER FORM */}
         <div className="auth-card">
 
           <h1>Create Account</h1>
@@ -173,10 +171,7 @@ function Register() {
         </div>
 
 
-        {/* =========================
-            PASSWORD REQUIREMENTS
-        ========================= */}
-
+        {/* RIGHT SIDE - PASSWORD REQUIREMENTS */}
         <div className="password-conditions">
 
           <h2>Password Requirements</h2>
