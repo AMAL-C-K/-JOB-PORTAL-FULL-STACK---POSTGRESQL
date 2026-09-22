@@ -1,3 +1,4 @@
+
 :root {
   --primary: #2563eb;
   --primary-hover: #1d4ed8;
@@ -33,13 +34,19 @@
 ========================= */
 
 .register-layout {
-  display: flex;
-  align-items: center;
+  display: grid;
+
+  grid-template-columns: 420px 280px;
 
   gap: 30px;
 
-  width: 100%;
-  max-width: 850px;
+  align-items: center;
+
+  width: fit-content;
+
+  max-width: 100%;
+
+  margin: auto;
 }
 
 
@@ -48,7 +55,8 @@
 ========================= */
 
 .auth-card {
-  width: 100%;
+  width: auto;
+
   max-width: 420px;
 
   background: var(--white);
@@ -81,16 +89,18 @@
 
 .auth-card form {
   display: flex;
+
   flex-direction: column;
 
   gap: 15px;
 }
 
 .auth-card label {
-  font-size: 14px;
-  font-weight: 500;
-
   color: var(--text);
+
+  font-size: 14px;
+
+  font-weight: 500;
 }
 
 .auth-card input,
@@ -125,7 +135,7 @@
 .password-conditions {
   width: 280px;
 
-  flex-shrink: 0;
+  box-sizing: border-box;
 
   background: var(--white);
 
@@ -247,6 +257,16 @@
   margin-bottom: 0 !important;
 
   font-size: 14px;
+}
+
+.auth-link span {
+  color: var(--primary);
+
+  margin-left: 5px;
+
+  cursor: pointer;
+
+  font-weight: 600;
 }
 
 .link-btn {
@@ -532,6 +552,8 @@
 .form-card select {
   width: 100%;
 
+  box-sizing: border-box;
+
   padding: 12px;
 
   border: 1px solid var(--border);
@@ -539,8 +561,6 @@
   border-radius: 6px;
 
   font-size: 15px;
-
-  box-sizing: border-box;
 }
 
 .form-card textarea {
@@ -881,17 +901,30 @@
 
 @media (max-width: 768px) {
 
-  .register-layout {
-    flex-direction: column;
+  /* REGISTER */
 
-    align-items: stretch;
+  .register-layout {
+    grid-template-columns: 1fr;
+
+    width: 100%;
 
     max-width: 420px;
   }
 
-  .password-conditions {
-    width: auto;
+  .auth-card {
+    max-width: none;
+
+    width: 100%;
+
+    box-sizing: border-box;
   }
+
+  .password-conditions {
+    width: 100%;
+  }
+
+
+  /* NAVBAR */
 
   .navbar {
     flex-direction: column;
@@ -909,10 +942,16 @@
     gap: 12px;
   }
 
+
+  /* JOB DETAILS */
+
   .job-details,
   .form-card {
     padding: 25px;
   }
+
+
+  /* DASHBOARD */
 
   .dashboard-header {
     flex-direction: column;
@@ -921,6 +960,9 @@
 
     gap: 20px;
   }
+
+
+  /* APPLICATIONS */
 
   .application-header {
     flex-direction: column;
@@ -948,6 +990,9 @@
     grid-template-columns: 1fr;
   }
 
+
+  /* JOB SEARCH */
+
   .job-search {
     flex-direction: column;
 
@@ -966,3 +1011,4 @@
     width: 100%;
   }
 }
+
