@@ -717,7 +717,7 @@ color: #991b1b;
   font-size: 14px;
   margin-top: 5px;
 }
-```css
+
 /* =========================
    PASSWORD REQUIREMENTS
 ========================= */
@@ -747,13 +747,6 @@ color: #991b1b;
 .password-conditions li {
   margin-bottom: 2px;
 }
-```
-
-
-
-
-
-
 
 /* =========================
    SEARCH MOBILE
