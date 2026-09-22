@@ -125,7 +125,7 @@ function Login() {
           <div className="demo-item">
             <h6>Jobseeker</h6>
             
-            <span><strong>Username</strong>DEMOUSER</span>
+            <span><strong>Username : </strong>DEMOUSER</span>
           </div>
 
           <div className="demo-item">
@@ -134,7 +134,8 @@ function Login() {
           <div className="demo-item">
             <h6>Employer</h6>
             
-            <span><strong>Username: </strong>hr@nexaSoft / hr@digitaledge</span>
+            <span><strong>Username: </strong>hr@nexaSoft</span>
+            <span><strong>Username: </strong>hr@digitaledge</span>
           </div>
 
           <div className="demo-item">
