@@ -14,10 +14,8 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Clear previous error
     setError("");
 
-    // Validate fields
     if (!username.trim() || !password.trim()) {
       setError("Username and password are required.");
       return;
@@ -34,23 +32,19 @@ function Login() {
         }),
       });
 
-      // Check login response
       if (!data.access || !data.refresh || !data.user) {
         setError("Invalid login response from server.");
         return;
       }
 
-      // Save authentication data
       login(data.access, data.refresh, data.user);
 
-      // Redirect according to role
       if (data.user?.role === "employer") {
         navigate("/employer-dashboard", { replace: true });
       } else {
         navigate("/jobs", { replace: true });
       }
     } catch (error) {
-      // Keep error visible
       setError("Invalid username or password.");
     } finally {
       setLoading(false);
@@ -59,66 +53,86 @@ function Login() {
 
   return (
     <div className="auth-container">
-      <div className="auth-card">
-        <h1>Welcome Back</h1>
-        <p>Login to your account</p>
+      <div className="login-layout">
 
-        {/* Error message */}
-        {error && <div className="error-message">{error}</div>}
+        {/* LEFT SIDE - LOGIN FORM */}
+        <div className="auth-card">
+          <h1>Welcome Back</h1>
+          <p>Login to your account</p>
 
-        <form onSubmit={handleSubmit}>
-          {/* Username */}
-          <label htmlFor="username">Username</label>
-          <input
-            id="username"
-            type="text"
-            placeholder="Enter your username"
-            value={username}
-            onChange={(e) => {
-              setUsername(e.target.value);
-              setError("");
-            }}
-            disabled={loading}
-            required
-          />
+          {error && <div className="error-message">{error}</div>}
 
-          {/* Password */}
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            type="password"
-            placeholder="Enter your password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-              setError("");
-            }}
-            disabled={loading}
-            required
-          />
+          <form onSubmit={handleSubmit}>
+            {/* Username */}
+            <label htmlFor="username">Username</label>
+            <input
+              id="username"
+              type="text"
+              placeholder="Enter your username"
+              value={username}
+              onChange={(e) => {
+                setUsername(e.target.value);
+                setError("");
+              }}
+              disabled={loading}
+              required
+            />
 
-          {/* Login button */}
-          <button
-            type="submit"
-            className="btn btn-primary"
-            disabled={loading}
-          >
-            {loading ? "Logging in..." : "Login"}
-          </button>
-        </form>
+            {/* Password */}
+            <label htmlFor="password">Password</label>
+            <input
+              id="password"
+              type="password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                setError("");
+              }}
+              disabled={loading}
+              required
+            />
 
-        {/* Register */}
-        <p className="auth-link">
-          Don't have an account?{" "}
-          <button
-            type="button"
-            className="link-btn"
-            onClick={() => navigate("/register")}
-            disabled={loading}
-          >
-            Register
-          </button>
-        </p>
+            {/* Login button */}
+            <button
+              type="submit"
+              className="btn btn-primary"
+              disabled={loading}
+            >
+              {loading ? "Logging in..." : "Login"}
+            </button>
+          </form>
+
+          {/* Register */}
+          <p className="auth-link">
+            Don't have an account?{" "}
+            <button
+              type="button"
+              className="link-btn"
+              onClick={() => navigate("/register")}
+              disabled={loading}
+            >
+              Register
+            </button>
+          </p>
+        </div>
+
+        {/* RIGHT SIDE - DEMO CREDENTIALS */}
+        <div className="demo-credentials">
+          <h2>Demo Account</h2>
+          <p>Use these credentials to explore the Job Portal.</p>
+
+          <div className="demo-item">
+            <strong>Username</strong>
+            <span>demo_user</span>
+          </div>
+
+          <div className="demo-item">
+            <strong>Password</strong>
+            <span>Demo@123</span>
+          </div>
+        </div>
+
       </div>
     </div>
   );
