@@ -717,6 +717,43 @@ color: #991b1b;
   font-size: 14px;
   margin-top: 5px;
 }
+```css
+/* =========================
+   PASSWORD REQUIREMENTS
+========================= */
+
+.password-conditions {
+  margin-top: 25px;
+  padding: 15px;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.password-conditions h3 {
+  margin: 0 0 10px;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.password-conditions ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--secondary-text);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.password-conditions li {
+  margin-bottom: 2px;
+}
+```
+
+
+
+
+
+
 
 /* =========================
    SEARCH MOBILE
