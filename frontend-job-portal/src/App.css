@@ -881,6 +881,60 @@
   background: var(--primary-hover);
 }
 
+.login-layout {
+  display: grid;
+  grid-template-columns: 420px 280px;
+  gap: 30px;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  margin: auto;
+}
+
+.demo-credentials {
+  width: 280px;
+  box-sizing: border-box;
+  background: var(--white);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.demo-credentials h2 {
+  margin-bottom: 10px;
+}
+
+.demo-credentials p {
+  color: var(--secondary-text);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.demo-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.demo-item span {
+  background: var(--background);
+  padding: 10px;
+  border-radius: 6px;
+  font-family: monospace;
+}
+
+@media (max-width: 768px) {
+  .login-layout {
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .demo-credentials {
+    width: 100%;
+  }
+}
 
 /* =========================
    POSTED DATE
